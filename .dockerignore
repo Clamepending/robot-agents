@@ -1,0 +1,8 @@
+.git
+.venv
+__pycache__
+*.pyc
+.pytest_cache
+src/*.egg-info
+src/robot_policy_mcp.egg-info
+tests

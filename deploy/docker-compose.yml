@@ -1,0 +1,18 @@
+version: "3.9"
+services:
+  robot-api-mock:
+    build:
+      context: ..
+      dockerfile: Dockerfile.mock-robot-api
+    ports:
+      - "8080:8080"
+
+  robot-policy-mcp:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    environment:
+      ROBOT_API_BASE_URL: http://robot-api-mock:8080
+      ROBOT_API_TIMEOUT_S: "5"
+    depends_on:
+      - robot-api-mock
